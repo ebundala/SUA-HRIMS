@@ -21,8 +21,9 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->database();
 		$this->load->helper('form');
+		$this->load->helper('url');
 		$this->load->library('form_validation');
-		$this->load->model("form_model");
+		$this->load->model("user_model");
 
 		$data['title'] = 'SUA-HRIS';
         
