@@ -9,10 +9,11 @@ class Employee extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('form_validation');
 		$this->load->model("employee/employee_model");
-        
-        $this->load->view('header');
-        $this->load->view('employee/index');
-        $this->load->view('footer');
+        $data['title']='Employee Portal';
+		$this->load->view('header',$data);
+		$this->load->view('employee/navigation',$data);
+        $this->load->view('employee/index',$data);
+        $this->load->view('footer',$data);
 	}
 
 

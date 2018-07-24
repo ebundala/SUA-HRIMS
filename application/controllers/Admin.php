@@ -11,7 +11,8 @@ class Admin extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->model("admin/admin_model");
         
-        $this->load->view('header');
+		$this->load->view('header');
+		$this->load->view('admin/navigation');
         $this->load->view('admin/index');
         $this->load->view('footer');
 	}

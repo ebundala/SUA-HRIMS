@@ -32,18 +32,47 @@ class Welcome extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('header',$data);
-			$this->load->view('index',$data);
-			$this->load->view('footer');
+			
+			$this->load->view('login',$data);
+			
 
 		}
 		else
 		{
 		
+		//handle login here
+		 
+		 redirect('hr');
+			
+		}
+	}
+
+	public function recovery(){
+		$this->load->database();
+		$this->load->helper('form');
+		$this->load->helper('url');
+		$this->load->library('form_validation');
+		$this->load->model("user_model");
+
+		$data['title'] = 'SUA-HRIS';
+        
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			
+			$this->load->view('resset-password',$data);
+			
+
+		}
+		else
+		{
 		
-		 $this->load->view('header',$data);
-		 $this->load->view('index',$data);
-			$this->load->view('footer');
+		//handle resset here
+		 
+		 redirect('hr');
+			
 		}
 	}
 
