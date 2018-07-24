@@ -25,30 +25,27 @@ class Welcome extends CI_Controller {
 		$this->load->model("form_model");
 
 		$data['title'] = 'SUA-HRIS';
-        $data['query']=$this->form_model->listRecords();
-		$this->form_validation->set_rules('title', 'Title', 'required');
-		$this->form_validation->set_rules('text', 'Text', 'required');
+        
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
 
 		if ($this->form_validation->run() === FALSE)
 		{
 			$this->load->view('header',$data);
-			$this->load->view('form',$data);
+			$this->load->view('index',$data);
 			$this->load->view('footer');
 
 		}
 		else
 		{
 		
-		 $this->form_model->insertRecord();
-		 $data['query']=$this->form_model->listRecords();
+		
 		 $this->load->view('header',$data);
-		 $this->load->view('form',$data);
+		 $this->load->view('index',$data);
 			$this->load->view('footer');
 		}
 	}
 
-	public function create(){
-	
-}
+
 
 }
